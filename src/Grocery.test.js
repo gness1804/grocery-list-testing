@@ -10,9 +10,14 @@ describe('Grocery', () => {
     expect(wrapper.contains(title)).toEqual(true);
   });
 
-  it('has a class of .Grocery', ()=>{
+  it('has a class of .Grocery', () => {
     const wrapper = shallow(<Grocery name="Bananas" />);
     expect(wrapper.is('.Grocery')).toEqual(true);
   });
-  
+
+  it('should have a className of "starred" if it is starred', () => {
+    const wrapper = shallow(<Grocery name="Bananas" starred={true}/>);
+    expect(wrapper.is('.starred')).toEqual(true);
+  });
+
 });
