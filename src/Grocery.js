@@ -10,6 +10,7 @@ const Grocery = ({ name, quantity, notes, purchased, starred, onPurchase, onStar
       {notes ? <p className="Grocery-notes">Notes: {notes}</p> : ''}
       <button className="Grocery-purchase">{purchased ? 'Unpurchase' : 'Purchase'}</button>
       <button className="Starred">{starred ? 'Unstar' : 'Star'}</button>
+      <button>Remove</button>
     </article>
   );
 };

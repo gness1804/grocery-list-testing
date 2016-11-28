@@ -82,3 +82,11 @@ describe('.Starred button', () => {
   });
 
 });
+
+describe('quantity field', () => {
+  it('should display the correct quantity', () => {
+    const wrapper = shallow(<Grocery name="Bananas" quantity={15} />);
+    expect(wrapper.find('.Grocery-quantity').text()).toEqual('Quantity: 15');
+  });
+
+});
