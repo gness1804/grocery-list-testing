@@ -75,5 +75,10 @@ describe('.Starred button', () => {
     const wrapper = shallow(<Grocery name="Bananas" starred={undefined} />);
     expect(wrapper.find('.Starred').text()).toEqual('Star');
   });
-  
+
+  it('should have the text of "Unstar" if starred is true', () => {
+    const wrapper = shallow(<Grocery name="Bananas" starred={true} />);
+    expect(wrapper.find('.Starred').text()).toEqual('Unstar');
+  });
+
 });
