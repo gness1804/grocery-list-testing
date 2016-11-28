@@ -68,6 +68,21 @@ describe('.Grocery-purchase button', () => {
     expect(wrapper.find('.Grocery-purchase').text()).toEqual('Unpurchase');
   });
 
+  it('should call the onPurchase prop when clicked', () => {
+    const onPurchaseMock = jest.fn();
+
+    const wrapper = mount(
+      <Grocery
+        name="Bananas"
+        purchased={true}
+        onPurchase={onPurchaseMock}
+      />
+    );
+
+    wrapper.find('.Grocery-purchase').simulate('click');
+    expect(onPurchaseMock).toBeCalled();
+  });
+
 });
 
 describe('.Starred button', () => {
