@@ -8,6 +8,7 @@ class App extends Component {
     super();
     this.state = {
       purchased: false,
+      starred: false,
     };
   }
 
@@ -15,9 +16,13 @@ class App extends Component {
     this.setState({ purchased: !this.state.purchased });
   }
 
+  toggleStarred() {
+    this.setState({ starred: !this.state.starred });
+  }
+
   render() {
     return (
-      <Grocery name={'bananas'} starred={false} purchased={this.state.purchased} onPurchase={() => {this.togglePurchase()}}/>
+      <Grocery name={'bananas'} starred={this.state.starred} purchased={this.state.purchased} onPurchase={() => {this.togglePurchase()}} onStar={() => { this.toggleStarred() }}/>
     );
   }
 

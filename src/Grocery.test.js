@@ -96,6 +96,21 @@ describe('.Starred button', () => {
     expect(wrapper.find('.Starred').text()).toEqual('Unstar');
   });
 
+  it('should call the onStar prop when clicked', () => {
+    const onStarMock = jest.fn();
+
+    const wrapper = mount(
+      <Grocery
+        name="Bananas"
+        starred={true}
+        onStar={onStarMock}
+      />
+    );
+
+    wrapper.find('.Starred').simulate('click');
+    expect(onStarMock).toBeCalled();
+  });
+
 });
 
 describe('quantity field', () => {
@@ -104,6 +119,9 @@ describe('quantity field', () => {
     expect(wrapper.find('.Grocery-quantity').text()).toEqual('Quantity: 15');
   });
 
+});
+
+describe('notes field', () => {
   it('should display the correct notes', () => {
     const wrapper = shallow(<Grocery name="Bananas" notes={'Be sure to avoid store brand.'} />);
     expect(wrapper.find('.Grocery-notes').text()).toEqual('Notes: Be sure to avoid store brand.');
