@@ -56,3 +56,11 @@ describe('Grocery', () => {
   });
 
 });
+
+describe('.Grocery-purchase button', () => {
+  it('should have a text of "Purchase" if purchased is false', () => {
+    const wrapper = shallow(<Grocery name="Bananas" purchased={undefined} />);
+    expect(wrapper.find('.Grocery-purchase').text()).toEqual('Purchase');
+  });
+
+});
