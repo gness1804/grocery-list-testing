@@ -30,4 +30,9 @@ describe('Grocery', () => {
     expect(wrapper.is('.purchased')).toEqual(true);
   });
 
+  it('should not have a className of "purchased" if it is not purchased', () => {
+    const wrapper = shallow(<Grocery name="Bananas" purchased={false}/>);
+    expect(wrapper.is('.purchased')).toEqual(false);
+  });
+
 });
