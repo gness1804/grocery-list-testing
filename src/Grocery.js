@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import classnames from 'classnames';
+import './Grocery.css';
 
 const Grocery = ({ name, quantity, notes, purchased, starred, onPurchase, onStar, onDelete}) => {
   return (
-    <article className={`Grocery ${ starred ? 'starred' : '' }`}>
+    <article className={classnames('Grocery', { starred })}>
       <h3>{name}</h3>
     </article>
   );
