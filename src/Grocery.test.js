@@ -69,3 +69,11 @@ describe('.Grocery-purchase button', () => {
   });
 
 });
+
+describe('.Starred button', () => {
+  it('should have the text of "Star" if starred is false', () => {
+    const wrapper = shallow(<Grocery name="Bananas" starred={undefined} />);
+    expect(wrapper.find('.Starred').text()).toEqual('Star');
+  });
+  
+});
