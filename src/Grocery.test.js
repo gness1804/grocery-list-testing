@@ -89,4 +89,9 @@ describe('quantity field', () => {
     expect(wrapper.find('.Grocery-quantity').text()).toEqual('Quantity: 15');
   });
 
+  it('should display the correct notes', () => {
+    const wrapper = shallow(<Grocery name="Bananas" notes={'Be sure to avoid store brand.'} />);
+    expect(wrapper.find('.Grocery-notes').text()).toEqual('Notes: Be sure to avoid store brand.');
+  });
+
 });
