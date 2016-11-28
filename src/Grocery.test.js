@@ -45,4 +45,9 @@ describe('Grocery', () => {
     expect(wrapper.find('.Grocery-quantity').length).toEqual(0);
   });
 
+  it('should have a p.Grocery-notes element if notes are passed as a prop', () => {
+    const wrapper = shallow(<Grocery name="Bananas" notes={'I want candy!'}/>);
+    expect(wrapper.find('.Grocery-notes').length).toEqual(1);
+  });
+
 });
