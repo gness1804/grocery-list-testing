@@ -7,7 +7,7 @@ class App extends Component {
 
   render() {
     return (
-      <Grocery name={'bananas'} starred={false}/>
+      <Grocery name={'bananas'} starred={false} purchased={false}/>
     );
   }
 

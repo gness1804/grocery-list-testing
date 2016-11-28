@@ -4,7 +4,7 @@ import './Grocery.css';
 
 const Grocery = ({ name, quantity, notes, purchased, starred, onPurchase, onStar, onDelete }) => {
   return (
-    <article className={classnames('Grocery', { starred })}>
+    <article className={classnames('Grocery', { starred, purchased })}>
       <h3>{name}</h3>
     </article>
   );
