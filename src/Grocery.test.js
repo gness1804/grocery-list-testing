@@ -63,4 +63,9 @@ describe('.Grocery-purchase button', () => {
     expect(wrapper.find('.Grocery-purchase').text()).toEqual('Purchase');
   });
 
+  it('should have a text of "Unpurchase" if purchase is true', () => {
+    const wrapper = shallow(<Grocery name="Bananas" purchased={true} />);
+    expect(wrapper.find('.Grocery-purchase').text()).toEqual('Unpurchase');
+  });
+
 });
