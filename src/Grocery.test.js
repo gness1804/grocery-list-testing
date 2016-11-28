@@ -40,4 +40,9 @@ describe('Grocery', () => {
     expect(wrapper.find('.Grocery-quantity').length).toEqual(1);
   });
 
+  it('should not have a p.Grocery-quantity element if a quantity is not passed as a prop', () => {
+    const wrapper = shallow(<Grocery name="Bananas" />);
+    expect(wrapper.find('.Grocery-quantity').length).toEqual(0);
+  });
+
 });
