@@ -128,3 +128,20 @@ describe('notes field', () => {
   });
 
 });
+
+describe('delete button', () => {
+  it('should called the onDelete prop when clicked', () => {
+    const onDeleteMock = jest.fn();
+
+    const wrapper = mount(
+      <Grocery
+        name="Bananas"
+        deleted={true}
+        onDelete={onDeleteMock}
+      />
+    );
+
+    wrapper.find('.Grocery-delete').simulate('click');
+    expect(onDeleteMock).toBeCalled();
+  });
+});

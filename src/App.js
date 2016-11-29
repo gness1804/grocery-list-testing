@@ -7,9 +7,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      deleted: false,
       purchased: false,
       starred: false,
     };
+  }
+
+  toggleDelete() {
+    this.setState({ deleted: !this.state.deleted });
   }
 
   togglePurchase() {
@@ -22,7 +27,11 @@ class App extends Component {
 
   render() {
     return (
-      <Grocery name={'bananas'} starred={this.state.starred} purchased={this.state.purchased} onPurchase={() => {this.togglePurchase()}} onStar={() => { this.toggleStarred() }}/>
+      <Grocery name={'bananas'}
+        deleted={this.state.deleted}
+        starred={this.state.starred} purchased={this.state.purchased}
+        onDelete={() => { this.toggleDelete() }}
+        onPurchase={() => {this.togglePurchase()}} onStar={() => { this.toggleStarred() }}/>
     );
   }
 
