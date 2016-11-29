@@ -129,7 +129,7 @@ describe('notes field', () => {
 
 });
 
-describe('delete button', () => {
+describe('.Grocery-delete button', () => {
   it('should called the onDelete prop when clicked', () => {
     const onDeleteMock = jest.fn();
 
