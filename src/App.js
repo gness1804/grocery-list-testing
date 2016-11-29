@@ -82,7 +82,7 @@ class App extends Component {
             <p>Quantity: </p><input className="quantity-input" value={quantity ? quantity : ''} placeholder="Quantity" onChange={(e) => {this.setQuantityState(e)} } />
             <p>Notes: </p><input className="notes-input" value={notes ? notes : ''} placeholder="Notes" onChange={(e) => {this.setNotesState(e)} } />
             <button className="create-item-button" onClick={() => {this.addNewGroceryToList(newGrocery)} }>Create Item</button>
-            <button disabled={groceries.length > 0 ? false : true} onClick={() => {this.clearGroceries()}}>Clear Groceries</button>
+            <button className="clear-all-button" disabled={groceries.length > 0 ? false : true} onClick={() => {this.clearGroceries()}}>Clear Groceries</button>
             {groceries.length > 0 ? <p className="counter">You have {groceries.length} grocery/ies on your list</p> : ''}
           </div>
           { groceries.map(g => <Grocery {...g} key={g.id} onDelete={() => { this.toggleDelete() }} onPurchase={() => {this.togglePurchase()}} onStar={() => { this.toggleStarred() }} />) }
