@@ -75,7 +75,7 @@ class App extends Component {
             <p>Notes: </p><input placeholder="Notes" onChange={(e) => {this.setNotesState(e)} } />
             <button onClick={() => {this.addNewGroceryToList(newGrocery, allGroceries)} }>Create Item</button>
           </div>
-          { groceries.map(g => <Grocery {...g} />) }
+          { groceries.map(g => <Grocery {...g} onDelete={() => { this.toggleDelete() }} onPurchase={() => {this.togglePurchase()}} onStar={() => { this.toggleStarred() }}/>) }
       </div>
     );
   }
