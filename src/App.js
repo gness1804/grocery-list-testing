@@ -7,6 +7,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      groceries: [],
       deleted: false,
       name: '',
       notes: '',
@@ -47,9 +48,9 @@ class App extends Component {
     return (
       <div className="main">
           <div className="input">
-            <input placeholder="Name" onChange={(e) => {this.setNameState(e)} } />
-            <input placeholder="Quantity" onChange={(e) => {this.setQuantityState(e)} } />
-            <input placeholder="Notes" onChange={(e) => {this.setNotesState(e)} } />
+            <p>Name: </p><input placeholder="Name" onChange={(e) => {this.setNameState(e)} } />
+            <p>Quantity: </p><input placeholder="Quantity" onChange={(e) => {this.setQuantityState(e)} } />
+            <p>Notes: </p><input placeholder="Notes" onChange={(e) => {this.setNotesState(e)} } />
             <button>Create Item</button>
           </div>
         <Grocery
@@ -60,7 +61,8 @@ class App extends Component {
           notes={notes}
           purchased={purchased}
           onDelete={() => { this.toggleDelete() }}
-          onPurchase={() => {this.togglePurchase()}} onStar={() => { this.toggleStarred() }}
+          onPurchase={() => {this.togglePurchase()}}
+          onStar={() => { this.toggleStarred() }}
           />
       </div>
     );
