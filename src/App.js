@@ -17,19 +17,9 @@ class App extends Component {
     };
   }
 
-  addNewGroceryToList() {
-    const { name, deleted, starred, quantity, notes, purchased } = this.state;
+  addNewGroceryToList(newGrocery) {
 
-    const NewGrocery = {
-      name,
-      deleted,
-      starred,
-      quantity,
-      notes,
-      purchased,
-    }
-
-    console.log(NewGrocery);
+    
 
   }
 
@@ -61,13 +51,24 @@ class App extends Component {
 
     const { name, deleted, starred, quantity, notes, purchased } = this.state;
 
+    const newGrocery = {
+      name,
+      deleted,
+      starred,
+      quantity,
+      notes,
+      purchased,
+    }
+
+    // console.log(newGrocery);
+
     return (
       <div className="main">
           <div className="input">
             <p>Name: </p><input placeholder="Name" onChange={(e) => {this.setNameState(e)} } />
             <p>Quantity: </p><input placeholder="Quantity" onChange={(e) => {this.setQuantityState(e)} } />
             <p>Notes: </p><input placeholder="Notes" onChange={(e) => {this.setNotesState(e)} } />
-            <button onClick={() => {this.addNewGroceryToList()} }>Create Item</button>
+            <button onClick={() => {this.addNewGroceryToList(newGrocery)} }>Create Item</button>
           </div>
         <Grocery
           name={name}
