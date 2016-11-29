@@ -19,6 +19,12 @@ class App extends Component {
 
   addNewGroceryToList(newGrocery) {
     this.state.groceries.push(newGrocery);
+    this.setState({ deleted: false });
+    this.setState({ name: '' });
+    this.setState({ notes: '' });
+    this.setState({ purchased: false });
+    this.setState({ quantity: null });
+    this.setState({ starred: false });
   }
 
   setNameState(e) {
