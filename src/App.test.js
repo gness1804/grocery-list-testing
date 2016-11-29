@@ -31,3 +31,16 @@ describe('the clear all groceries button', () => {
     expect(wrapper.find('.Grocery').length).toEqual(0);
   });
 });
+
+describe('the counter of all groceries on the page', () => {
+  it('should correctly display the number of items on the page', () => {
+    const wrapper = mount(<App />);
+    wrapper.find('.name-input').simulate('change', {target: {value: 'Apples'}});
+    wrapper.find('.create-item-button').simulate('click');
+    wrapper.find('.name-input').simulate('change', {target: {value: 'Oranges'}});
+    wrapper.find('.create-item-button').simulate('click');
+    wrapper.find('.name-input').simulate('change', {target: {value: 'Soda'}});
+    wrapper.find('.create-item-button').simulate('click');
+    expect(wrapper.find('.counter').text()).toEqual('You have 3 grocery/ies on your list');
+  });
+});
