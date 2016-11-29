@@ -65,13 +65,17 @@ class App extends Component {
       id: Date.now(),
     }
 
+    const howManyGroceries = groceries.length;
+
     return (
       <div className="main">
           <div className="input">
-            <p>Name: </p><input value={name ? name : ''} placeholder="Name" onChange={(e) => {this.setNameState(e)} } />
-            <p>Quantity: </p><input value={quantity ? quantity : ''} placeholder="Quantity" onChange={(e) => {this.setQuantityState(e)} } />
-            <p>Notes: </p><input value={notes ? notes : ''} placeholder="Notes" onChange={(e) => {this.setNotesState(e)} } />
+            <p>Name: </p><input className="name-input" value={name ? name : ''} placeholder="Name" onChange={(e) => {this.setNameState(e)} } />
+            <p>Quantity: </p><input className="quantity-input" value={quantity ? quantity : ''} placeholder="Quantity" onChange={(e) => {this.setQuantityState(e)} } />
+            <p>Notes: </p><input className="notes-input" value={notes ? notes : ''} placeholder="Notes" onChange={(e) => {this.setNotesState(e)} } />
             <button onClick={() => {this.addNewGroceryToList(newGrocery)} }>Create Item</button>
+            <button>Clear Groceries</button>
+            {groceries.length > 0 ? <p>You have {howManyGroceries} grocery/ies on your list</p> : ''}
           </div>
           { groceries.map(g => <Grocery {...g} key={g.id} onDelete={() => { this.toggleDelete() }} onPurchase={() => {this.togglePurchase()}} onStar={() => { this.toggleStarred() }} />) }
       </div>

@@ -9,4 +9,7 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
 });
 
-it('');
+// it('should show the correct number of groceries on the page', () => {
+//     const wrapper = mount(<App />);
+//     wrapper.find('.name-input')
+// });
