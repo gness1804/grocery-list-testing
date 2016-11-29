@@ -4,8 +4,6 @@ import App from './App';
 
 import { shallow, mount } from 'enzyme';
 
-import fakeGroceries from './fake-groceries';
-
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
