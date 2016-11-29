@@ -14,7 +14,6 @@ class App extends Component {
       purchased: false,
       quantity: null,
       starred: false,
-      id: Date.now(),
     };
   }
 
@@ -54,7 +53,7 @@ class App extends Component {
 
   render() {
 
-    const { name, deleted, starred, quantity, notes, purchased, groceries, id } = this.state;
+    const { name, deleted, starred, quantity, notes, purchased, groceries } = this.state;
 
     const newGrocery = {
       name,
@@ -63,7 +62,7 @@ class App extends Component {
       quantity,
       notes,
       purchased,
-      id,
+      id: Date.now(),
     }
 
     return (
