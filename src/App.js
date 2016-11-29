@@ -27,11 +27,22 @@ class App extends Component {
 
   render() {
     return (
-      <Grocery name={'bananas'}
-        deleted={this.state.deleted}
-        starred={this.state.starred} purchased={this.state.purchased}
-        onDelete={() => { this.toggleDelete() }}
-        onPurchase={() => {this.togglePurchase()}} onStar={() => { this.toggleStarred() }}/>
+      <div className="main">
+          <div className="input">
+            <input placeholder="Name"/>
+            <input placeholder="Quantity"/>
+            <input placeholder="Notes"/>
+            <button>Create Item</button>
+          </div>
+        <Grocery
+          name={'bananas'}
+          deleted={this.state.deleted}
+          starred={this.state.starred}
+          purchased={this.state.purchased}
+          onDelete={() => { this.toggleDelete() }}
+          onPurchase={() => {this.togglePurchase()}} onStar={() => { this.toggleStarred() }}
+          />
+      </div>
     );
   }
 
