@@ -14,6 +14,7 @@ class App extends Component {
       purchased: false,
       quantity: null,
       starred: false,
+      id: Date.now(),
     };
   }
 
@@ -53,10 +54,7 @@ class App extends Component {
 
   render() {
 
-    // console.log(this.state.groceries);
-    let allGroceries;
-
-    const { name, deleted, starred, quantity, notes, purchased, groceries } = this.state;
+    const { name, deleted, starred, quantity, notes, purchased, groceries, id } = this.state;
 
     const newGrocery = {
       name,
@@ -65,6 +63,7 @@ class App extends Component {
       quantity,
       notes,
       purchased,
+      id,
     }
 
     return (
@@ -73,9 +72,9 @@ class App extends Component {
             <p>Name: </p><input placeholder="Name" onChange={(e) => {this.setNameState(e)} } />
             <p>Quantity: </p><input placeholder="Quantity" onChange={(e) => {this.setQuantityState(e)} } />
             <p>Notes: </p><input placeholder="Notes" onChange={(e) => {this.setNotesState(e)} } />
-            <button onClick={() => {this.addNewGroceryToList(newGrocery, allGroceries)} }>Create Item</button>
+            <button onClick={() => {this.addNewGroceryToList(newGrocery)} }>Create Item</button>
           </div>
-          { groceries.map(g => <Grocery {...g} onDelete={() => { this.toggleDelete() }} onPurchase={() => {this.togglePurchase()}} onStar={() => { this.toggleStarred() }}/>) }
+          { groceries.map(g => <Grocery {...g} key={g.id} onDelete={() => { this.toggleDelete() }} onPurchase={() => {this.togglePurchase()}} onStar={() => { this.toggleStarred() }} />) }
       </div>
     );
   }
